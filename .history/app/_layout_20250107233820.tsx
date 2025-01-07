@@ -26,7 +26,7 @@ export default function RootLayout() {
     <Stack screenOptions={{ headerStyle: { backgroundColor: theme.headerBackground }, headerTintColor: theme.text, headerShadowVisible: false }}>
       <Stack.Screen name="index" options={{ headerShown: false, title: 'Home' }} />
       <Stack.Screen name="contact" options={{ headerShown: true, title: 'Contact Us' }} />
-      <Stack.Screen name="forms/LoginForm" options={{ headerShown: true, title: 'Login' }} />
+      <Stack.Screen name="app\forms\LoginForm.jsx" options={{ headerShown: true, title: 'Login' }} />
       <Stack.Screen name="forms/RegisterForm" options={{ headerShown: true, title: 'Register' }} />
       <Stack.Screen name="+not-found" />
     </Stack>
