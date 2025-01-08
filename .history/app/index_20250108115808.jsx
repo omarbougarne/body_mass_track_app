@@ -3,10 +3,10 @@ import {React, useState} from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 function Index() {
-  // const [authenticated, setAuthenticated] = useState();
+  const [authenticated, setAuthenticated] = useState(false);
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to Body Mass Index App 💪🧠</Text>
+      <Text style={styles.title}>Welcome to Body Mass Index App</Text>
       <TouchableOpacity style={styles.button}>
         <Link href="/forms/LoginForm" style={styles.linkText}>
           Login
@@ -17,8 +17,8 @@ function Index() {
           Register
         </Link>
       </TouchableOpacity>
-      {/* {authenticated ? (
-        <> */}
+      {authenticated ? (
+        <>
       <TouchableOpacity style={styles.button}>
         <Link href="/forms/UserInfoForm" style={styles.linkText}>
           Enter User Info
@@ -29,10 +29,10 @@ function Index() {
           Dashboard
         </Link>
       </TouchableOpacity>
-      {/* </>
+      </>
       ) : (
         <Text>Authenticate first.</Text>
-      )} */}
+      )}
     </View>
   );
 }

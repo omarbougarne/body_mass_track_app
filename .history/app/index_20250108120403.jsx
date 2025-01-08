@@ -3,10 +3,10 @@ import {React, useState} from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 function Index() {
-  // const [authenticated, setAuthenticated] = useState();
+  const [authenticated, setAuthenticated] = useState();
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to Body Mass Index App 💪🧠</Text>
+      <Text style={styles.title}>Welcome to Body Mass Index App</Text>
       <TouchableOpacity style={styles.button}>
         <Link href="/forms/LoginForm" style={styles.linkText}>
           Login

@@ -27,15 +27,15 @@ function Dashboard() {
       
             ( 
         <View>
-          <Text>Name: {userInfo.name}</Text>
-          <Text>Age: {userInfo.age}</Text>
-          <Text>Height:  {userInfo.height} cm</Text>
-          <Text>Weight:  {userInfo.weight}kg</Text>
+          <Text>Name: </Text>
+          <Text>Age: </Text>
+          <Text>Height:  cm</Text>
+          <Text>Weight:  kg</Text>
         </View>
        ) 
       : (
         <Text>No user info available.</Text>
-      ) }
+      ) 
     </View>
   );
 }
