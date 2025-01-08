@@ -25,17 +25,17 @@ function Dashboard() {
       <Text style={styles.title}>Dashboard</Text>
       {/* {userInfo ?  */}
       
-      {/* ( */}
+      (
         <View>
           <Text>Name: </Text>
           <Text>Age: </Text>
           <Text>Height:  cm</Text>
           <Text>Weight:  kg</Text>
         </View>
-      {/* ) 
-      : (
-        <Text>No user info available.</Text>
-      ) */}
+      ) 
+      {/* : ( */}
+        {/* <Text>No user info available.</Text> */}
+      {/* ) */}
     </View>
   );
 }

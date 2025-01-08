@@ -23,19 +23,16 @@ function Dashboard() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Dashboard</Text>
-      {/* {userInfo ?  */}
-      
-      {/* ( */}
+      {userInfo ? (
         <View>
-          <Text>Name: </Text>
-          <Text>Age: </Text>
-          <Text>Height:  cm</Text>
-          <Text>Weight:  kg</Text>
+          <Text>Name: {userInfo.name}</Text>
+          <Text>Age: {userInfo.age}</Text>
+          <Text>Height: {userInfo.height} cm</Text>
+          <Text>Weight: {userInfo.weight} kg</Text>
         </View>
-      {/* ) 
-      : (
+      ) : (
         <Text>No user info available.</Text>
-      ) */}
+      )}
     </View>
   );
 }
