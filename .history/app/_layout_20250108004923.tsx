@@ -28,8 +28,6 @@ export default function RootLayout() {
       <Stack.Screen name="contact" options={{ headerShown: true, title: 'Contact Us' }} />
       <Stack.Screen name="forms/LoginForm" options={{ headerShown: true, title: 'Login' }} />
       <Stack.Screen name="forms/RegisterForm" options={{ headerShown: true, title: 'Register' }} />
-      <Stack.Screen name="forms/UserInfoForm" options={{ headerShown: true, title: 'Enter User Info' }} />
-      <Stack.Screen name="dashboard" options={{ headerShown: true, title: 'Dashboard' }} />
       <Stack.Screen name="+not-found" />
     </Stack>
   );

@@ -16,16 +16,6 @@ function Index() {
           Register
         </Link>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button}>
-        <Link href="/forms/UserInfoForm" style={styles.linkText}>
-          Enter User Info
-        </Link>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button}>
-        <Link href="/dashboard" style={styles.linkText}>
-          Dashboard
-        </Link>
-      </TouchableOpacity>
     </View>
   );
 }

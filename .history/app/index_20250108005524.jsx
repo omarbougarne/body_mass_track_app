@@ -1,30 +1,38 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useRouter } from 'expo-router';
 
-function RegisterForm() {
+function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const router = useRouter();
 
-  const handleRegister = async () => {
-    if (password !== confirmPassword) {
-      Alert.alert('Registration Failed', 'Passwords do not match.');
-      return;
-    }
-
+  const handleLogin = async () => {
     try {
-      const userData = { email, password };
-      await AsyncStorage.setItem(email, JSON.stringify(userData));
-      Alert.alert('Registration Successful', 'You can now log in.');
+      const userData = await AsyncStorage.getItem(email);
+      if (userData) {
+        const user = JSON.parse(userData);
+        if (user.password === password) {
+          console.log('Login Successful:', user);
+          Alert.alert('Login Successful', 'Welcome back!');
+          router.push('/'); // Redirect to home
+        } else {
+          console.log('Login Failed: Incorrect password.');
+          Alert.alert('Login Failed', 'Incorrect password.');
+        }
+      } else {
+        console.log('Login Failed: User not found.');
+        Alert.alert('Login Failed', 'User not found.');
+      }
     } catch (error) {
-      console.error(error);
+      console.error('Error during login:', error);
     }
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Register</Text>
+      <Text style={styles.title}>Login</Text>
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -38,14 +46,7 @@ function RegisterForm() {
         value={password}
         onChangeText={setPassword}
       />
-      <TextInput
-        style={styles.input}
-        placeholder="Confirm Password"
-        secureTextEntry
-        value={confirmPassword}
-        onChangeText={setConfirmPassword}
-      />
-      <Button title="Register" onPress={handleRegister} />
+      <Button title="Login" onPress={handleLogin} />
     </View>
   );
 }
@@ -72,4 +73,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RegisterForm;
+export default LoginForm;
