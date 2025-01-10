@@ -10,7 +10,7 @@ function UserInfoForm() {
   const [weight, setWeight] = useState('');
   const [file, setFile] = useState(null);
 
-  const media = async () => {
+  const imag = async () => {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (status !== 'granted') {
       alert('Permission denied');
@@ -59,7 +59,7 @@ function UserInfoForm() {
         value={weight}
         onChangeText={setWeight}
       />
-      <TouchableOpacity style={styles.button} onPress={media}>
+      <TouchableOpacity style={styles.button} onPress={image}>
         <Text style={styles.buttonText}>Pick an Image</Text>
       </TouchableOpacity>
       {file && <Image source={{ uri: file }} style={styles.image} />}

@@ -10,7 +10,7 @@ function UserInfoForm() {
   const [weight, setWeight] = useState('');
   const [file, setFile] = useState(null);
 
-  const media = async () => {
+  const pickImage = async () => {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (status !== 'granted') {
       alert('Permission denied');
@@ -59,7 +59,7 @@ function UserInfoForm() {
         value={weight}
         onChangeText={setWeight}
       />
-      <TouchableOpacity style={styles.button} onPress={media}>
+      <TouchableOpacity style={styles.button} onPress={pickImage}>
         <Text style={styles.buttonText}>Pick an Image</Text>
       </TouchableOpacity>
       {file && <Image source={{ uri: file }} style={styles.image} />}
@@ -73,29 +73,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f0f4f7',
     padding: 20,
   },
   title: {
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 40,
-    textAlign: 'center',
-  },
-  button: {
-    backgroundColor: '#007AFF',
-    paddingVertical: 15,
-    paddingHorizontal: 30,
-    borderRadius: 8,
-    marginVertical: 10,
-    width: '80%',
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
-    elevation: 5,
+    marginBottom: 20,
   },
   input: {
     width: '100%',
@@ -105,17 +88,17 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     borderRadius: 5,
   },
-  // button: {
-  //   backgroundColor: "#007AFF",
-  //   padding: 10,
-  //   borderRadius: 8,
-  //   marginBottom: 16,
-  //   shadowColor: "#000000",
-  //   shadowOffset: { width: 0, height: 2 },
-  //   shadowOpacity: 0.4,
-  //   shadowRadius: 4,
-  //   elevation: 5,
-  // },
+  button: {
+    backgroundColor: "#007AFF",
+    padding: 10,
+    borderRadius: 8,
+    marginBottom: 16,
+    shadowColor: "#000000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.4,
+    shadowRadius: 4,
+    elevation: 5,
+  },
   buttonText: {
     color: '#fff',
     fontSize: 16,

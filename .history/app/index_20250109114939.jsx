@@ -1,6 +1,6 @@
 import { Link } from 'expo-router';
 import {React, useState} from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, file } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 function Index() {
   // const [authenticated, setAuthenticated] = useState();
@@ -20,8 +20,9 @@ function Index() {
       
       {/* {authenticated ? (
         <> */}
-       
-        
+        {/* <TouchableOpacity style={styles.button}>
+        <Text>image will be here</Text>
+      </TouchableOpacity> */}
       <TouchableOpacity style={styles.button}>
         <Link href="/forms/UserInfoForm" style={styles.linkText}>
           Enter User Info
@@ -45,34 +46,24 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f0f4f7',
-    padding: 20,
+    backgroundColor: '#f5f5f5',
   },
   title: {
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 40,
-    textAlign: 'center',
+    marginBottom: 20,
+    color: '#00CED1'
   },
   button: {
-    backgroundColor: '#007AFF',
-    paddingVertical: 15,
-    paddingHorizontal: 30,
-    borderRadius: 8,
+    backgroundColor: '#007bff',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
     marginVertical: 10,
-    width: '80%',
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
-    elevation: 5,
   },
   linkText: {
     color: '#fff',
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 16,
   },
 });
 

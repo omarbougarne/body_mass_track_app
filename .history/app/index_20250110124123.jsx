@@ -1,9 +1,8 @@
-import { Link } from 'expo-router';
-import {React, useState} from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, file } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { Link } from 'react-router-native';
 
 function Index() {
-  // const [authenticated, setAuthenticated] = useState();
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to Body Mass Index App 💪🧠</Text>
@@ -17,11 +16,6 @@ function Index() {
           Register
         </Link>
       </TouchableOpacity>
-      
-      {/* {authenticated ? (
-        <> */}
-       
-        
       <TouchableOpacity style={styles.button}>
         <Link href="/forms/UserInfoForm" style={styles.linkText}>
           Enter User Info
@@ -32,10 +26,6 @@ function Index() {
           Dashboard
         </Link>
       </TouchableOpacity>
-      {/* </>
-      ) : (
-        <Text>Authenticate first.</Text>
-      )} */}
     </View>
   );
 }

@@ -34,22 +34,22 @@ function Dashboard() {
     <View style={styles.container}>
       <Text style={styles.title}>Dashboard</Text>
       {userInfo ? (
-        <View style={styles.infoContainer}>
-          <Text style={styles.infoText}>Name: {userInfo.name}</Text>
-          <Text style={styles.infoText}>Age: {userInfo.age}</Text>
-          <Text style={styles.infoText}>Height: {userInfo.height} cm</Text>
-          <Text style={styles.infoText}>Weight: {userInfo.weight} kg</Text>
-          <Text style={styles.infoText}>BMI: {calculateBMI(userInfo.height, userInfo.weight)}</Text>
+        <View>
+          <Text>Name: {userInfo.name}</Text>
+          <Text>Age: {userInfo.age}</Text>
+          <Text>Height: {userInfo.height} cm</Text>
+          <Text>Weight: {userInfo.weight} kg</Text>
+          <Text>BMI: {calculateBMI(userInfo.height, userInfo.weight)}</Text>
           {userInfo.file ? (
             <View style={styles.imageContainer}>
               <Image source={{ uri: userInfo.file }} style={styles.image} />
             </View>
           ) : (
-            <Text style={styles.infoText}>No Image Selected</Text>
+            <Text>No Image Selected</Text>
           )}
         </View>
       ) : (
-        <Text style={styles.infoText}>No user info available.</Text>
+        <Text>No user info available.</Text>
       )}
     </View>
   );
@@ -70,22 +70,19 @@ const styles = StyleSheet.create({
     marginBottom: 40,
     textAlign: 'center',
   },
-  infoContainer: {
-    backgroundColor: '#fff',
-    borderRadius: 10,
-    padding: 20,
-    width: '90%',
+  button: {
+    backgroundColor: '#007AFF',
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    borderRadius: 8,
+    marginVertical: 10,
+    width: '80%',
     alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
+    shadowOpacity: 0.3,
     shadowRadius: 4,
     elevation: 5,
-  },
-  infoText: {
-    fontSize: 18,
-    color: '#333',
-    marginBottom: 10,
   },
   imageContainer: {
     borderRadius: 8,

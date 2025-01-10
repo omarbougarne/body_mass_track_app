@@ -4,17 +4,15 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function Dashboard() {
   const [userInfo, setUserInfo] = useState(null);
+  const [file, setFile] = useState(null);
 
   useEffect(() => {
     const fetchUserInfo = async () => {
       try {
         const data = await AsyncStorage.getItem('userInfo');
-        if (data) {
-          const parsedData = JSON.parse(data);
-          console.log('Fetched user info:', parsedData); 
-          setUserInfo(parsedData);
-        } else {
-          console.log('No user info found in AsyncStorage'); 
+        const storedFile = await AsyncStorage.getItem('profileImage');
+        if (storedFile) {
+          setFile(storedFile);
         }
       } catch (error) {
         console.error('Failed to fetch user info', error);
@@ -34,22 +32,22 @@ function Dashboard() {
     <View style={styles.container}>
       <Text style={styles.title}>Dashboard</Text>
       {userInfo ? (
-        <View style={styles.infoContainer}>
-          <Text style={styles.infoText}>Name: {userInfo.name}</Text>
-          <Text style={styles.infoText}>Age: {userInfo.age}</Text>
-          <Text style={styles.infoText}>Height: {userInfo.height} cm</Text>
-          <Text style={styles.infoText}>Weight: {userInfo.weight} kg</Text>
-          <Text style={styles.infoText}>BMI: {calculateBMI(userInfo.height, userInfo.weight)}</Text>
-          {userInfo.file ? (
+        <View>
+          <Text>Name: {userInfo.name}</Text>
+          <Text>Age: {userInfo.age}</Text>
+          <Text>Height: {userInfo.height} cm</Text>
+          <Text>Weight: {userInfo.weight} kg</Text>
+          <Text>BMI: {calculateBMI(userInfo.height, userInfo.weight)}</Text>
+          {file ? (
             <View style={styles.imageContainer}>
-              <Image source={{ uri: userInfo.file }} style={styles.image} />
+              <Image source={{ uri: file }} style={styles.image} />
             </View>
           ) : (
-            <Text style={styles.infoText}>No Image Selected</Text>
+            <Text>No Image Selected</Text>
           )}
         </View>
       ) : (
-        <Text style={styles.infoText}>No user info available.</Text>
+        <Text>No user info available.</Text>
       )}
     </View>
   );
@@ -60,32 +58,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f0f4f7',
     padding: 20,
   },
   title: {
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 40,
-    textAlign: 'center',
-  },
-  infoContainer: {
-    backgroundColor: '#fff',
-    borderRadius: 10,
-    padding: 20,
-    width: '90%',
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 5,
-  },
-  infoText: {
-    fontSize: 18,
-    color: '#333',
-    marginBottom: 10,
+    marginBottom: 20,
   },
   imageContainer: {
     borderRadius: 8,
